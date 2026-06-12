@@ -4,7 +4,7 @@ A Machine Learning web application that predicts a student's final academic grad
 
 ## 🚀 Live Demo
 
-[Streamlit App]([YOUR_STREAMLIT_LINK_HERE](https://predictive-analysis-dashboard-7fwt38llz6biezhum5uvgm.streamlit.app/))
+[Streamlit App](https://predictive-analysis-dashboard-7fwt38llz6biezhum5uvgm.streamlit.app/)
 
 ## 📌 Project Overview
 
