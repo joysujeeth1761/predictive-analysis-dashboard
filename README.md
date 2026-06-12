@@ -167,4 +167,3 @@ streamlit run app/streamlit_app.py
 Mathematics and Computing  
 Indian Institute of Technology Delhi (IIT Delhi)
 
-GitHub: https://github.com/joysujeeth1761
