@@ -59,10 +59,10 @@ r2 = r2_score(
     y_pred
 )
 
-print("Linear Regression Results")
+"""print("Linear Regression Results")
 print(f"MAE:  {mae}")
 print(f"RMSE: {rmse}")
-print(f"R2:   {r2}")
+print(f"R2:   {r2}")"""
 
 from sklearn.ensemble import RandomForestRegressor
 
@@ -82,10 +82,10 @@ rf_mae = mean_absolute_error(y_test, rf_pred)
 rf_rmse = mean_squared_error(y_test, rf_pred) ** 0.5
 rf_r2 = r2_score(y_test, rf_pred)
 
-print("\nRandom Forest Results")
+"""print("\nRandom Forest Results")
 print(f"MAE:  {rf_mae}")
 print(f"RMSE: {rf_rmse}")
-print(f"R2:   {rf_r2}")
+print(f"R2:   {rf_r2}")"""
 
 from xgboost import XGBRegressor
 
@@ -125,11 +125,11 @@ xgb_r2 = r2_score(
     xgb_pred
 )
 
-print("\nXGBOOST RESULTS ")
+"""print("\nXGBOOST RESULTS ")
 
 print("MAE :", xgb_mae)
 print("RMSE:", xgb_rmse)
-print("R2  :", xgb_r2)
+print("R2  :", xgb_r2) """
 
 import pandas as pd
 
@@ -156,9 +156,9 @@ results_df = pd.DataFrame({
     ]
 })
 
-print(results_df)
+"""print(results_df) """
 
-import matplotlib.pyplot as plt
+""" import matplotlib.pyplot as plt
 plt.figure(figsize=(8,5))
 
 plt.bar(
@@ -169,6 +169,33 @@ plt.bar(
 plt.ylabel("R² Score")
 plt.title("Model Comparison")
 
-plt.show()
+plt.show() """
 
-plt.savefig("/Users/joysujeeth/Downloads/results/model_comparison.png")
+# saving the model
+from pathlib import Path
+import joblib
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MODELS_DIR = BASE_DIR / "models"
+
+MODELS_DIR.mkdir(exist_ok=True)
+
+# Save Model
+
+joblib.dump(
+    lr_model,
+    MODELS_DIR / "student_performance_model.pkl"
+)
+
+joblib.dump(
+    scaler,
+    MODELS_DIR / "scaler.pkl"
+)
+
+joblib.dump(
+    x_encoded.columns.tolist(),
+    MODELS_DIR / "feature_names.pkl"
+)
+
+print("Models saved successfully!")
